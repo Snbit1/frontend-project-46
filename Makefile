@@ -6,3 +6,6 @@ install:
 
 test-coverage:
 	npm run test -- --coverage
+
+test:
+	jest

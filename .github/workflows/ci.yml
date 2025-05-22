@@ -42,3 +42,17 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectKey: "Snbit1_frontend-project-46"
+          projectName: "frontend-project-46"
+          organization: "snbit1"
+
+      - name: Upload coverage to SonarQube
+        run: |
+          curl -u ${{ secrets.SONAR_TOKEN }} \
+            -X POST \
+            -d "projectKey=Snbit1_frontend-project-46"
+            -d "projectName=frontend-project-46"
+            -d "organization=snbit1"
+            -d "coverageReport=coverage/lcov-report/index.html"
+            "https://sonarcloud.io/api/coverage/upload"
