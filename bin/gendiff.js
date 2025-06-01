@@ -12,6 +12,10 @@ program
   .argument('<filepath2>', 'path to the second file')
   .option('-f, --format <type>', 'output format', 'stylish');
 
+program.exitOverride((err) => {
+  throw err;
+});
+
 program.action((filepath1, filepath2, options) => {
   try {
     const diff = genDiff(filepath1, filepath2, options.format);
