@@ -9,6 +9,7 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
+    'brace-style': 'off',
     'semi': 'off',
     '@typescript-eslint/semi': 'off',
 
@@ -31,4 +32,4 @@ module.exports = {
   env: {
     node: true,
   },
-};
+}

@@ -8,7 +8,8 @@ const parseFile = (filepath) => {
   const extname = path.extname(resolvedPath).toLowerCase()
   try {
     return parse(fileContent, extname)
-  } catch (error) {
+  }
+  catch (error) {
     console.error(`Error parsing file: ${resolvedPath}`)
     throw error
   }
