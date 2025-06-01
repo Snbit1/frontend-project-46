@@ -1,17 +1,17 @@
-import fs from 'fs';
-import path from 'path';
-import parse from './parsers.js';
+import fs from 'fs'
+import path from 'path'
+import parse from './parsers.js'
 
-const parseFile = (filepath) => {
-  const resolvedPath = path.resolve(filepath);
-  const fileContent = fs.readFileSync(resolvedPath, 'utf-8');
-  const extname = path.extname(resolvedPath).toLowerCase();
+const parseFile = filepath => {
+  const resolvedPath = path.resolve(filepath)
+  const fileContent = fs.readFileSync(resolvedPath, 'utf-8')
+  const extname = path.extname(resolvedPath).toLowerCase()
   try {
-    return parse(fileContent, extname);
+    return parse(fileContent, extname)
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error(`Error parsing file: ${resolvedPath}`);
-    throw error;
+    console.error(`Error parsing file: ${resolvedPath}`)
+    throw error
   }
-};
-export default parseFile;
+}
+export default parseFile
