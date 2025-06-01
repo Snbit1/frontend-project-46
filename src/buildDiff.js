@@ -4,7 +4,7 @@ const buildDiff = (obj1, obj2) => {
   const keys1 = Object.keys(obj1)
   const keys2 = Object.keys(obj2)
   const allKeysSet = new Set([...keys1, ...keys2])
-  const allKeys = Array.from(allKeysSet).sort()
+  const allKeys = Array.from(allKeysSet).sort((a, b) => a.localeCompare(b));
 
   return allKeys.map((key) => {
     const val1 = obj1[key]
@@ -18,11 +18,11 @@ const buildDiff = (obj1, obj2) => {
       }
     }
 
-    if (!Object.prototype.hasOwnProperty.call(obj2, key)) {
+    if (!Object.hasOwn(obj2, key)) {
       return { key, type: 'removed', value: val1 }
     }
 
-    if (!Object.prototype.hasOwnProperty.call(obj1, key)) {
+    if (!Object.hasOwn(obj1, key)) {
       return { key, type: 'added', value: val2 }
     }
 
