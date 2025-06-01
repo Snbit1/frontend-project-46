@@ -17,17 +17,16 @@ program.exitOverride()
 program.action((filepath1, filepath2, options) => {
   try {
     const diff = genDiff(filepath1, filepath2, options.format)
-    // eslint-disable-next-line no-console
     console.log(diff)
-  } catch (error) {
-    // eslint-disable-next-line no-console
+  } 
+  catch (error) {
     console.error('Error reading or parsing files:', error.message)
   }
 })
 
 try {
   program.parse(process.argv)
-} catch (error) {
-  // eslint-disable-next-line no-console
+} 
+catch (error) {
   console.error(error.message)
 }

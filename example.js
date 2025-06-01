@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import genDiff from './src/index.js'
 
 const filepath1 = './__fixtures__/file1.json'

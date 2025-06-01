@@ -22,7 +22,7 @@ const stringify = (value, depth) => {
 }
 
 const formatStylish = (diffTree, depth = 1) => {
-  const lines = diffTree.flatMap(node => {
+  const lines = diffTree.flatMap((node) => {
     const {
       key, type, value, oldValue, newValue, children,
     } = node

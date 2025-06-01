@@ -1,6 +1,6 @@
 const isComplexValue = value => value !== null && typeof value === 'object'
 
-const stringifyValue = value => {
+const stringifyValue = (value) => {
   if (isComplexValue(value)) return '[complex value]'
   if (typeof value === 'string') return `'${value}'`
   if (value === null) return 'null'
@@ -8,7 +8,7 @@ const stringifyValue = value => {
 }
 
 const formatPlain = (diffTree, path = []) => {
-  const lines = diffTree.flatMap(node => {
+  const lines = diffTree.flatMap((node) => {
     const {
       key, type, value, oldValue, newValue, children,
     } = node

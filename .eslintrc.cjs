@@ -11,7 +11,7 @@ module.exports = {
   rules: {
     'import/extensions': ['error', 'never', { js: 'always' }],
     'no-underscore-dangle': ['error', { allow: ['__dirname', '__filename'] }],
-    semi: ['error', 'never'],
+    'semi': ['error', 'never'],
     'arrow-parens': ['error', 'as-needed'],
   },
-};
+}
