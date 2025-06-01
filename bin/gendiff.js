@@ -12,6 +12,8 @@ program
   .argument('<filepath2>', 'path to the second file')
   .option('-f, --format <type>', 'output format', 'stylish');
 
+program.exitOverride();
+
 program.action((filepath1, filepath2, options) => {
   try {
     const diff = genDiff(filepath1, filepath2, options.format);
@@ -20,8 +22,12 @@ program.action((filepath1, filepath2, options) => {
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Error reading or parsing files:', error.message);
-    process.exit(1);
   }
 });
 
-program.parse(process.argv);
+try {
+  program.parse(process.argv);
+} catch (error) {
+  // eslint-disable-next-line no-console
+  console.error(error.message);
+}
