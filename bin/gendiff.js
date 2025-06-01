@@ -12,7 +12,7 @@ program
 program
   .argument('<filepath1>', 'path to the first file')
   .argument('<filepath2>', 'path to the second file')
-  .option('-f, --format <type>', 'output format');
+  .option('-f, --format <type>', 'output format', 'stylish');
 
 program.helpInformation = () => `
 Usage: gendiff [options] <filepath1> <filepath2>
@@ -25,9 +25,9 @@ Options:
   -h, --help           display help for command
 `;
 
-program.action((filepath1, filepath2) => {
+program.action((filepath1, filepath2, options) => {
   try {
-    const diff = genDiff(filepath1, filepath2);
+    const diff = genDiff(filepath1, filepath2, options.format);
     // eslint-disable-next-line no-console
     console.log(diff);
   } catch (error) {
