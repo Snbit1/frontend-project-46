@@ -4,7 +4,7 @@ const buildDiff = (obj1, obj2) => {
   const keys1 = Object.keys(obj1)
   const keys2 = Object.keys(obj2)
   const allKeysSet = new Set([...keys1, ...keys2])
-  const allKeys = Array.from(allKeysSet).sort((a, b) => a.localeCompare(b));
+  const allKeys = Array.from(allKeysSet).sort((a, b) => a.localeCompare(b))
 
   return allKeys.map((key) => {
     const val1 = obj1[key]
