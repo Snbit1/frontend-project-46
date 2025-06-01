@@ -18,15 +18,13 @@ program.action((filepath1, filepath2, options) => {
   try {
     const diff = genDiff(filepath1, filepath2, options.format)
     console.log(diff)
-  }
-  catch (error) {
+  } catch (error) {
     console.error('Error reading or parsing files:', error.message)
   }
 })
 
 try {
   program.parse(process.argv)
-}
-catch (error) {
+} catch (error) {
   console.error(error.message)
 }
