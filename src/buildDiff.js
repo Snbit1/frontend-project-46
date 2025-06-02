@@ -3,8 +3,9 @@ const isObject = value => value !== null && typeof value === 'object' && !Array.
 const buildDiff = (obj1, obj2) => {
   const keys1 = Object.keys(obj1)
   const keys2 = Object.keys(obj2)
-  const allKeysSet = new Set([...keys1, ...keys2])
-  const allKeys = Array.from(allKeysSet).sort((a, b) => a.localeCompare(b))
+  const allKeys = [
+    ...keys1,
+    ...keys2.filter(key => !keys1.includes(key))].sort((a, b) => a.localeCompare(b))
 
   return allKeys.map((key) => {
     const val1 = obj1[key]
@@ -30,12 +31,13 @@ const buildDiff = (obj1, obj2) => {
       return { key, type: 'unchanged', value: val1 }
     }
 
-    return {
+    const defaultNode = {
       key,
       type: 'changed',
       oldValue: val1,
       newValue: val2,
     }
+    return defaultNode
   })
 }
 

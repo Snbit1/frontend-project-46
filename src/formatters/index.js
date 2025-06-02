@@ -8,4 +8,12 @@ const formatters = {
   json: formatJson,
 }
 
+export const getFormatter = (format) => {
+  const formatFunction = formatters[format]
+  if (!formatFunction) {
+    throw new Error(`Unknown format: ${format}`)
+  }
+  return formatFunction
+}
+
 export default formatters

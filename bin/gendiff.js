@@ -11,22 +11,9 @@ program
   .argument('<filepath1>', 'path to the first file')
   .argument('<filepath2>', 'path to the second file')
   .option('-f, --format <type>', 'output format', 'stylish')
-
-program.exitOverride()
-
-program.action((filepath1, filepath2, options) => {
-  try {
+  .action((filepath1, filepath2, options) => {
     const diff = genDiff(filepath1, filepath2, options.format)
     console.log(diff)
-  }
-  catch (error) {
-    console.error('Error reading or parsing files:', error.message)
-  }
-})
+  })
 
-try {
-  program.parse(process.argv)
-}
-catch (error) {
-  console.error(error.message)
-}
+program.parse(process.argv)
