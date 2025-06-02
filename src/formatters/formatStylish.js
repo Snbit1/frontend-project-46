@@ -10,10 +10,10 @@ const getIndent = (depth, type = 'normal') => {
 
 const stringify = (value, depth) => {
   if (value === null) return 'null'
-  if (typeof value !== 'object') return String(value);
+  if (typeof value !== 'object') return String(value)
 
-  const indent = indentChar.repeat(depth * indentSize);
-  const bracketIndent = indentChar.repeat((depth - 1) * indentSize);
+  const indent = indentChar.repeat(depth * indentSize)
+  const bracketIndent = indentChar.repeat((depth - 1) * indentSize)
 
   const lines = Object.entries(value).map(
     ([key, val]) => `${indent}${key}: ${stringify(val, depth + 1)}`,
@@ -35,18 +35,18 @@ const formatStylish = (diffTree, depth = 1) => {
   }
 
   const lines = diffTree.flatMap((node) => {
-    const formatter = nodeFormatters[node.type];
+    const formatter = nodeFormatters[node.type]
     if (!formatter) {
-      throw new Error(`Unknown node type: ${node.type}`);
+      throw new Error(`Unknown node type: ${node.type}`)
     }
-    return formatter(node);
+    return formatter(node)
   })
 
   if (depth === 1) {
-    return ['{', ...lines, '}'].join('\n');
+    return ['{', ...lines, '}'].join('\n')
   }
 
-  return lines.join('\n');
+  return lines.join('\n')
 }
 
 export default formatStylish

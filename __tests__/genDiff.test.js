@@ -4,8 +4,8 @@ import fs from 'fs'
 import genDiff from '../src/index.js'
 
 const __dirname = path.resolve()
-const getFixturePath = (filename) => path.join(__dirname, '__fixtures__', filename)
-const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8')
+const getFixturePath = filename => path.join(__dirname, '__fixtures__', filename)
+const readFile = filename => fs.readFileSync(getFixturePath(filename), 'utf-8')
 
 const filepath1 = getFixturePath('file1.json')
 const filepath2 = getFixturePath('file2.json')
