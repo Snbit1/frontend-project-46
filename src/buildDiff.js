@@ -31,13 +31,12 @@ const buildDiff = (obj1, obj2) => {
       return { key, type: 'unchanged', value: val1 }
     }
 
-    const defaultNode = {
+    return {
       key,
       type: 'changed',
       oldValue: val1,
       newValue: val2,
     }
-    return defaultNode
   })
 }
 
