@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-export const getAbsolutePath = (filepath) => path.resolve(filepath)
+export const getAbsolutePath = filepath => path.resolve(filepath)
 
 export const readFile = (filepath) => {
   const absolutePath = getAbsolutePath(filepath)
